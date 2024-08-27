@@ -42,7 +42,7 @@ for year in years:
 
 # If full run2, then combine all years
 if options.year == "Run2": 
-    rMax = 2.0
+    rMax = 2.0 # Need lower rMax due to higher sensitivity
     for m in masses:
         for ct in ctaus:
             #for v in ['Z', 'W']:
@@ -57,24 +57,41 @@ if options.year == "Run2":
 
 for m in masses:
     for ct in ctaus:
+        cmd_combine = "combineCards.py " # Command to combine all categories into 1 card
         #for v in ['Z', 'W']:
         for v in ['Z']:
-            cmd_v = "combineCards.py "
+            cmd_v = "combineCards.py " # Command to combine e+mu categories for a given V type
             for l in ['ELE', 'MU']:
-                print ("{}->{} m{} ctau{}".format(v,l,m,ct))
                 # Run combine to get limits for each individual category
+                print ("Running combine for {}->{} m{} ctau{}".format(v,l,m,ct))
                 name = "{}H_{}_m{}_ctau{}_{}".format(v,l,m,ct,options.year)
                 cmd = "combine -M AsymptoticLimits datacard_{}.txt -m 125 -n .{} --rMax {}".format(name, name, rMax)
                 if options.blind:
                     cmd += " --run blind"
                 os.system(cmd)
+                
                 cmd_v += "datacard_{}.txt ".format(name)
+
+            # Run combine on combined e+mu datacard
             name = "{}H_m{}_ctau{}_{}".format(v,m,ct,options.year)
             cmd_v += "> datacard_{}.txt".format(name)
             os.system(cmd_v)
 
-            print ("{}H m{} ctau{}".format(v, m, ct))
+            print ("Running combine for all {}H m{} ctau{}".format(v, m, ct))
             cmd = "combine -M AsymptoticLimits datacard_{}.txt -m 125 -n .{} --rMax {}".format(name,name,rMax)
             if options.blind:
                 cmd += " --run blind"
             os.system(cmd)
+
+            cmd_combine += "datacard_{}.txt ".format(name)
+
+        # combineCards all V types and run combine
+        name = "VH_m{}_ctau{}_{}".format(m,ct,options.year)
+        cmd_combine += "> datacard_{}.txt".format(name)
+        os.system(cmd_combine)
+
+        print ("Running combine for all VH m{} ctau{}".format(m,ct))
+        cmd = "combine -M AsymptoticLimits datacard_{}.txt -m 125 -n .{} --rMax {}".format(name, name, rMax)
+        if options.blind:
+            cmd += " --run blind"
+        os.system(cmd)
