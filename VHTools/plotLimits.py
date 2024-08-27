@@ -1,9 +1,9 @@
-import sys
-sys.path.append("/uscms_data/d3/tclam/YOURWORKINGAREA/DDP/combine/CMSSW_14_1_0_pre4/src/")
 import ROOT
 import os, math
+import sys
+sys.path.append("../../")
 from CombineHarvester.CombineTools.plotting import *
-import tdrstyle as tdrstyle
+sys.path.append("../../python/VHTools/")
 import CMS_lumi as CMS_lumi
 #sty = tdrstyle.setTDRStyle()
 
