@@ -23,7 +23,7 @@ os.chdir(dir_out+"datacards_{}".format(options.date))
 
 ctaus = [0, 3, 10, 20, 32, 50, 70, 100, 316, 1000]
 masses = [15, 20, 30, 40, 50, 55]
-
+Vs = ['W', 'Z']
 intLumi = 0
 if options.year == "2018":
     intLumi = 59.83
@@ -133,8 +133,7 @@ for m in masses:
     convertToJSON(limits, name, br*scale)
 
     limits = {}
-    #for v in ['W', 'Z']:
-    for v in ['Z']:
+    for v in Vs:
         limits[v] = {}
         for l in ['ELE','MU']:
             limits[v][l] = []
@@ -169,8 +168,7 @@ for m in masses:
 
     # Limits for each category
     graphs = {}
-    #for v in ['W', 'Z']:
-    for v in ['Z']:
+    for v in Vs:
         graphs[v] = {}
         for l in ['ELE','MU']:
             jsonfile = "limitsVsCtau_{}H_{}_m{}_{}.json".format(v,l,m,year)
@@ -223,8 +221,7 @@ for m in masses:
     tex.Draw("same")
     c.Write("limitVsCtau_m{}_{}_cats".format(m,year))
 
-    #for v in ['W', 'Z']:
-    for v in ['Z']:
+    for v in Vs:
         for l in ['ELE', 'MU']:
             jsonfile = "limitsVsCtau_{}H_{}_m{}_{}.json".format(v,l,m,year)
             c = drawLimitPlot(jsonfile, intLumi, options.blind, logx=True, logy=True)

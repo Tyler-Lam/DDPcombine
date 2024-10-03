@@ -16,7 +16,7 @@ os.chdir(dir_out+"datacards_{}".format(options.date))
 
 masses = [15, 20, 30, 40, 50, 55]
 ctaus = [0, 3, 10, 14, 20, 32, 50, 70, 100, 316, 1000]
-
+Vs  = ['W', 'Z']
 years = []
 if options.year == "Run2":
     years = ['2016', '2017', '2018']
@@ -29,8 +29,7 @@ rMax = 5
 for year in years:
     for m in masses:
         for ct in ctaus:
-            #for v in ['Z', 'W']:
-            for v in ['Z']:
+            for v in Vs:
                 for l in ['ELE', 'MU']:
                     name = "{}H_{}_m{}_ctau{}_{}".format(v,l,m,ct,year)
                     cmd = "combineCards.py "
@@ -45,8 +44,7 @@ if options.year == "Run2":
     rMax = 2.0 # Need lower rMax due to higher sensitivity
     for m in masses:
         for ct in ctaus:
-            #for v in ['Z', 'W']:
-            for v in ['Z']:
+            for v in Vs:
                 for l in ['ELE', 'MU']:
                     name = "{}H_{}_m{}_ctau{}".format(v,l,m,ct)
                     cmd = "combineCards.py "
@@ -58,8 +56,7 @@ if options.year == "Run2":
 for m in masses:
     for ct in ctaus:
         cmd_combine = "combineCards.py " # Command to combine all categories into 1 card
-        #for v in ['Z', 'W']:
-        for v in ['Z']:
+        for v in Vs:
             cmd_v = "combineCards.py " # Command to combine e+mu categories for a given V type
             for l in ['ELE', 'MU']:
                 # Run combine to get limits for each individual category
