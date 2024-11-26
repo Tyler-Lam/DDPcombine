@@ -15,7 +15,9 @@ if not os.path.isdir(dir_out+"datacards_{}".format(options.date)):
 os.chdir(dir_out+"datacards_{}".format(options.date))
 
 masses = [15, 20, 30, 40, 50, 55]
-ctaus = [0, 3, 10, 14, 20, 32, 50, 70, 100, 316, 1000]
+#masses = [30]
+#ctaus = [0, 3, 10, 14, 20, 32, 50, 70, 100, 316, 1000]
+ctaus = [0, 10, 20, 50, 100, 1000]
 Vs  = ['W', 'Z']
 years = []
 if options.year == "Run2":

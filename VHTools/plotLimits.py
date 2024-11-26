@@ -22,7 +22,8 @@ if not os.path.isdir(dir_out+"datacards_{}".format(options.date)):
 os.chdir(dir_out+"datacards_{}".format(options.date))
 
 ctaus = [0, 3, 10, 20, 32, 50, 70, 100, 316, 1000]
-masses = [15, 20, 30, 40, 50, 55]
+#masses = [15, 20, 30, 40, 50, 55]
+masses = [30]
 Vs = ['W', 'Z']
 intLumi = 0
 if options.year == "2018":
