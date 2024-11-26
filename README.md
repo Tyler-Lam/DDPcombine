@@ -10,6 +10,10 @@ Requires a CMSSW area with both [combine](https://cms-analysis.github.io/HiggsAn
   * `{date}`: datacards should be saved in directory named `datacards_{date}`  
   * `{year}`: which year of data taking (2016, 2017, 2018 or Run2 for all years)  
   * `{-b}`: Add to run blind (ignore observed data and just produce expected limits)
+* Additional Options for combine using toys:
+  * `{-g/--grid}`: Run only categories/quantiles using fixed point grid generation
+  * `{-m/--merge}`: Merge fixed point grids and run limits on merged categories
+  * `-v {v}`: Verbosity for combine output  
 
 * After producing the limits, plot them using  
 ```python3 python/VHTools/plotLimits.py -d {date} -y {year} {-b}```
