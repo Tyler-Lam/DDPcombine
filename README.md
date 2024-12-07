@@ -14,6 +14,7 @@ Requires a CMSSW area with both [combine](https://cms-analysis.github.io/HiggsAn
   * `{-g/--grid}`: Run only categories/quantiles using fixed point grid generation
   * `{-m/--merge}`: Merge fixed point grids and run limits on merged categories
   * `-v {v}`: Verbosity for combine output
+  * `-p`: Plot the limit scans and save as png. Highly recommended to determine which categories/quantiles fail to converge normally and require a fixed grid
 * Using toys produces a huge number of log/output files from condor. If running on lxplus, you may run into issues with the AFS file threshold. One minor fix is to add the following line into the CONDOR_TEMPLATE in the CombineToolBase.py script `output_destination = root://eosuser.cern.ch//eos/user/{u}/{user}/{output_dir}/` to transfer the output logs to your eos area.
 
 * After producing the limits, plot them using  
