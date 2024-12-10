@@ -1,6 +1,6 @@
 Code to run datacards and make limit plots for the VH DDP analysis
 
-Requires a CMSSW area with both [combine](https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/latest/#combine-v10-recommended-version) and [combineHarvester](https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/latest/#combineharvestercombinetools) installed
+Requires a CMSSW area with both [combine](https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/latest/#combine-v10-recommended-version) [1] and [combineHarvester](https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/latest/#combineharvestercombinetools) installed
 
 * Install using  
 ```git clone https://github.com/Tyler-Lam/DDPcombine.git python```
@@ -19,3 +19,5 @@ Requires a CMSSW area with both [combine](https://cms-analysis.github.io/HiggsAn
 
 * After producing the limits, plot them using  
 ```python3 python/VHTools/plotLimits.py -d {date} -y {year} {-b}```
+
+[1]: We found issues with limits from low statistics categories using the HybridNew method to generate toys. A temporary fix has been implemented [here](https://github.com/Tyler-Lam/HiggsAnalysis-CombinedLimit/blob/HybridNew_update/src/HybridNew.cc)
