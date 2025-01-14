@@ -24,7 +24,7 @@ Once you have the datacards, run combine to produce the limits using
   * `{-m}`: Merge gridpoints. Once the individual gridpoints are run, you have to use this option to merge them into one file
 * Other Useful arguments:
   * `-l {limit}`: Changes behavior of test statistic and toy generation. limit = LHC (default LHC style) or CH (Cousins-Hihgland, recommended for low background)
-  * `{-p}`: Save plot of the limit scan as a png
+  * `{-p}`: Save plot of the limit scan as a png. This is very important as it allows you to determine which limits need a fixed grid.
   * `-v {verbose}`: Verbosity of the combine output log
 
 After producing the limits, plot them using  
