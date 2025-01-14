@@ -6,7 +6,7 @@
 #  V = 'W', 'Z' (or 'V' for combined)
 #  'l' = 'ELE', 'MU', (delete this key or put None for combined categories)
 #  m, ct = mass, lifetime of Phi
-#  quant = grid intervals and step size for each quantile (any number of quantiles > 0 is permitted)
+#  quant = grid intervals and step size for each quantile (any number of quantiles is permitted, quantile of -1 is used for observed/unblinded limits)
 
 
 # Current categories for old binning, need to update with old binning
@@ -132,6 +132,30 @@ categories = [
     {'year': '2018', 'V': 'V', 'm': 55, 'ct': 50, 'quant': {0.16: [0.08, 0.1, 0.00125]}}, #Check limit scan for this one too
     {'year': '2018', 'V': 'V', 'm': 55, 'ct': 100, 'quant': {0.025: [0.074, 0.084, 0.00125]}},
     {'year': '2018', 'V': 'V', 'm': 55, 'ct': 1000, 'quant': {0.025: [0.2, 0.27, 0.005], 0.975: [0.8, 0.95, 0.01]}},
+
+    #Run2 Z->ee, m = 15 GeV
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 15, 'ct': 0, 'quant': {0.025: [0.5, 0.6, 0.0125], 0.84: [0.5, 0.7, 0.025]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 15, 'ct': 50, 'quant': {0.025: [0.9, 1.1, 0.025], 0.16: [0.9, 1.1, 0.025], 0.5: [0.9, 1.1, 0.025], 0.84: [.95, 1.15, 0.02]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 15, 'ct': 1000, 'quant': {0.025: [9, 11, 0.2]}},
+
+    #Run2 Z->ee, m = 30 GeV
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 30, 'ct': 10, 'quant': {0.16: [.2, .27, 0.005], 0.84: [0.33, 0.43, 0.01], 0.975: [0.46, 0.52, 0.005]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 30, 'ct': 50, 'quant': {0.025: [0.25, 0.3, 0.005]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 30, 'ct': 1000, 'quant': {0.16: [1.4, 1.6, 0.05], 0.975: [3.5, 4.0, 0.05]}},
+
+    #Run2 Z->ee, m = 40 GeV
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 40, 'ct': 10, 'quant': {0.025: [0.2, 0.25, 0.005], 0.84: [0.35, 0.5, 0.01]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 40, 'ct': 20, 'quant': {0.16: [.25, .35, 0.01], 0.5: [0.33, 0.38, 0.005]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 40, 'ct': 50, 'quant': {0.025: [0.2, 0.3, 0.01]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 40, 'ct': 100, 'quant': {0.025: [0.2, 0.28, 0.01]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 40, 'ct': 1000, 'quant': {0.025: [0.6, 0.65, 0.01]}},
+
+    #Run2 Z->ee, m = 50 GeV MISSING: ct10 and ct20 q0.025
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 50, 'ct': 0, 'quant': {0.5: [0.4, 0.5, 0.01]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 50, 'ct': 10, 'quant': {0.16: [0.3, 0.35, 0.005]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 50, 'ct': 50, 'quant': {0.5: [0.4, 0.5, 0.005]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 50, 'ct': 100, 'quant': {0.025: [.22, .26, 0.0025], 0.16: [0.32, 0.45, 0.01]}},
+    {'year': 'Run2', 'V': 'Z', 'l': 'ELE', 'm': 50, 'ct': 1000, 'quant': {0.5: [1.4, 1.6, 0.0025]}},
 ]
 
 gridPoints = {}
