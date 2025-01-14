@@ -15,11 +15,11 @@ parser.add_option("-d", "--date", dest="date", default="01_06_23",help="date for
 parser.add_option("-b", "--blind", dest = "blind", action="store_true", default = False, help="Use option --run blind for combine")
 (options,args) = parser.parse_args()
 
-dir_out = ""
+dir_out = "combine_{}".format(options.date)
 year = options.year
-if not os.path.isdir(dir_out+"datacards_{}".format(options.date)):
-    os.mkdir(dir_out+"datacards_{}".format(options.date))
-os.chdir(dir_out+"datacards_{}".format(options.date))
+if not os.path.isdir(dir_out):
+    os.mkdir(dir_out)
+os.chdir(dir_out)
 
 #ctaus = [0, 3, 10, 20, 32, 50, 70, 100, 316, 1000]
 ctaus = [0, 10, 20, 50, 100, 1000]
